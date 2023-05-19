@@ -1,4 +1,5 @@
 .idea
 node_modules
 /front/node_modules
+/config/db.js
 .DS_Store
