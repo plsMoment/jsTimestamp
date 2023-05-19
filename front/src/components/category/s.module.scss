@@ -1,0 +1,145 @@
+.price{
+    width: 165px;
+}
+
+.priceButton
+{
+
+
+    background: #F5F5F5;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    border: 0px;
+    outline: none;
+
+    width: 165px;
+    height: 43px;
+
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 33px;
+    color: black;
+
+    display: flex;
+    justify-content: space-between;
+
+    .textPrice
+    {
+        padding-left: 28%;
+    }
+
+    
+    .iconPrice span
+    {
+        padding-right: 5%;
+        padding-bottom: 16%;
+        align-items: center;
+    }
+    
+}
+
+
+.priceButton:hover
+{
+    background: #D9D9D9;
+    color: #7635BD;
+}
+
+.priceButton:active
+{
+    
+    background: #F5F5F5;
+}
+
+
+
+.priceList
+{
+    //height: 0;
+    //width: 165px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.priceListActive
+{
+    z-index: 1;
+    width: 165px;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    
+    transform: translateY(+10px);
+    //transform: scaleY(2);
+
+    opacity: 1;
+    visibility: visible;
+
+    .firtsBt
+    {
+        border-radius:4px 4px 0 0;
+    }
+
+    .lastBt
+    {
+        border-radius:0 0 4px 4px;
+        border-bottom: 0;
+    }
+}
+/*
+.priceListActive li
+{
+    width: 165px;
+    padding: 0;
+    margin: 0;
+
+    border-bottom: 1px solid #dddddd;
+}
+*/
+.priceListActive Button
+{
+    
+    width: 165px;
+    padding: 0;
+    margin: 0;
+
+    background: #F5F5F5;
+    align-items: center;
+    border: 0px;
+    outline: none;
+
+    //font-weight: 400;
+    font-size: 20px;
+    //line-height: 23px;
+    border-bottom: 1px solid #dddddd;
+    
+}
+
+.priceListActive Button:hover
+{
+    background: #D9D9D9;
+    color: #7635BD;
+}
+
+.priceListActive Button:active
+{
+    
+    background: #F5F5F5;
+}
+
+.categoryList {
+    display: none;
+}
+
+.categoryListActive {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    background-color: #ECDFFA;
+    z-index: 1;
+}

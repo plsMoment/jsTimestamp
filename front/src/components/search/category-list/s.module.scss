@@ -1,0 +1,30 @@
+.categoryList {
+    padding-top: 27px;
+    padding-bottom: 27px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 33px;
+
+    & .header {
+        color: rgba(0, 0, 0, 0.48);
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .categoryListItem {
+        margin-top: 50px;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+

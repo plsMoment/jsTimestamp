@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+.EventEntryForm {
+    position: relative;
+    width: 615px;
+    height: 411px;
+
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    border-radius: 20px;
+
+    &__header {
+        margin-bottom: 37px;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 36px;
+        line-height: 40px;
+        text-align: center;
+        font-feature-settings: 'liga' off;
+
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    &__input {
+        width: 100%;
+        padding-top: 19px;
+        padding-bottom: 18px;
+        padding-left: 16px;
+        background: #ECF1F7;
+        border-radius: 8px;
+        border-width: 0;
+
+        margin-bottom: 20px;
+    }
+
+    &__submitBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__agreement {
+        display: flex;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+
+        color: rgba(0, 0, 0, 0.48);
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &__cross {
+        position: absolute;
+        top: 33px;
+        right: 30px;
+
+        cursor: pointer;
+    }
+
+    &__checkBox {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+    &__checkBox+label{
+  
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+    }
+    &__checkBox+label::before {
+        content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid #adb5bd;
+      border-radius: 0.25em;
+      margin-right: 0.5em;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+      }
+      
+      &__checkBox:checked+label::before {
+        border-color: rgba(118, 53, 189, 0.8);
+        background-color: rgba(118, 53, 189, 0.8);
+        background-image: url('./check.svg');
+      }
+}

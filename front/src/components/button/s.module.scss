@@ -1,0 +1,24 @@
+.Button {
+    padding: 22px 28px;
+
+    background: rgba(118, 53, 189, 0.8);
+    border-radius: 8px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(118, 53, 189, 0.9);
+    }
+}

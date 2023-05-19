@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+.popa{
+    color:#7635BD;
+}
+
+.errorTxtCB {
+    &__true {
+        position: absolute;
+        height: 20px;
+
+        bottom: 20px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+
+        color: #E31C1C;
+    }
+
+    &__false {
+        position: absolute;
+        visibility: none;
+        opacity: 0;
+    }
+}
+
+.errorTxt {
+    &__true {
+        height: 20px;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+
+        color: #E31C1C;
+    }
+
+    &__false {
+        position: absolute;
+        visibility: none;
+        opacity: 0;
+    }
+}
+
+.EventEntryForm {
+    position: relative;
+    width: 596px;
+
+    padding-top: 20px;
+    padding-left: 34px;
+    padding-right: 34px;
+    padding-bottom: 25px;
+
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    border-radius: 20px;
+    color: rgba(0, 0, 0, 0.54);
+
+   
+    &__select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url('./arrow.svg')  no-repeat , #ECF1F7;
+        background-position: bottom 50% right 18px;
+
+        width: 100%;
+        padding-top: 19px;
+        padding-bottom: 18px;
+        padding-left: 16px;
+        border-radius: 8px;
+        border-width: 0;
+        // color: rgba(0, 0, 0, 0.54);
+        margin-bottom: 20px;
+      }
+  
+      &__date{
+
+
+        width: 100%;
+        padding-top: 19px;
+        padding-bottom: 18px;
+        padding-left: 16px;
+        background: #ECF1F7;
+        border-radius: 8px;
+        border-width: 0;
+
+        margin-bottom: 20px;
+      }
+
+    &__header {
+        margin-bottom: 37px;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 36px;
+        line-height: 40px;
+        text-align: center;
+        font-feature-settings: 'liga' off;
+
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    &__input {
+        width: 100%;
+        padding-top: 19px;
+        padding-bottom: 18px;
+        padding-left: 16px;
+        background: #ECF1F7;
+        border-radius: 8px;
+        border-width: 0;
+
+        margin-bottom: 20px;
+        
+        &__error {
+            width: 100%;
+            padding-top: 19px;
+            padding-bottom: 18px;
+            padding-left: 16px;
+            background: rgba(224, 31, 25, 0.12);;
+            border-radius: 8px;
+            border-width: 0;
+
+            //margin-bottom: 20px;
+        }
+    }
+
+    &__submitBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__checkBox {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+    &__checkBox+label{
+  
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+    }
+    &__checkBox+label::before {
+        content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid #adb5bd;
+      border-radius: 0.25em;
+      margin-right: 0.5em;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+      }
+      
+      &__checkBox:checked+label::before {
+        border-color: rgba(118, 53, 189, 0.8);
+        background-color: rgba(118, 53, 189, 0.8);
+        background-image: url('./check.svg');
+      }
+
+
+    &__agreement {
+        display: flex;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+
+        color: rgba(0, 0, 0, 0.48);
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &__cross {
+        position: absolute;
+        top: 33px;
+        right: 30px;
+
+        cursor: pointer;
+    }
+}
+
+.Button {
+    padding: 22px 28px;
+
+    background: rgba(118, 53, 189, 0.8);
+    border-radius: 8px;
+    border: 0;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(118, 53, 189, 0.9);
+    }
+}

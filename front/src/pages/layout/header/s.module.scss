@@ -1,0 +1,171 @@
+.Header{
+  background-color: #7635BD;
+  height: 98px;
+}
+.header {
+  height: 98px;
+  .city{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color:white;
+    font-size: 24px;
+  }
+  .userInfo {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color:white;
+    font-size: 24px;
+    
+    .avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 31px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+.downIcon {
+  box-shadow: (8px 8px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+
+
+
+
+.cityList {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+
+  width: 0px;
+  height: 0px;
+}
+
+.cityListActive {
+  z-index: 10000;
+  position: absolute;
+  width: 195px;
+
+  padding: 0;
+  margin: 0;
+
+  z-index: 11;
+
+  transform: translateY(+31px);
+  filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 0.25));
+
+  & button {
+    width: 100%;
+    color: #000000;
+    background-color: #F5F5F5;
+
+    border: 0px;
+    outline: none;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+
+    &:hover {
+      background-color: #D9D9D9;
+      color: #7635BD;
+    }
+    &:active {
+      background-color: #F5F5F5;
+    }
+  }
+
+  & input {
+    width: 100%;
+    color: #000000;
+    background-color: #F5F5F5;
+
+    border: 0px;
+    outline: none;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+
+    padding-left: 8px;
+  }
+
+  .firtsEl {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .lastEl {
+    border-radius: 0 0 5px 5px;
+  }
+
+  .onlEl {
+    color: #7635BD;
+  }
+}
+
+
+
+
+
+.userList {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+
+  width: 0px;
+  height: 0px;
+}
+
+.userListActive {
+  z-index: 10000;
+  position: absolute;
+  width: 260px;
+  padding: 0;
+  margin: 0;
+  //box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  //border-radius: 4px;
+  
+  transform: translateY(+18px);
+  filter: drop-shadow(8px 8px 4px rgba(0, 0, 0, 0.25));
+
+  border-radius: 5px;
+
+  & button {
+    width: 100%;
+    color: #000000;
+    background-color: #F5F5F5;
+
+    border: 0px;
+    outline: none;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+
+    &:hover {
+      background-color: #D9D9D9;
+      color: #7635BD;
+    }
+    &:active {
+      background-color: #F5F5F5;
+    }
+  }
+
+  .firtsBt { //last-chlid и first-child почему-то не работают, тильт какой-то
+    border-radius: 5px 5px 0 0;
+  }
+  .lastBt {
+    border-radius: 0 0 5px 5px;
+  }
+}

@@ -1,0 +1,24 @@
+.imgBlock{
+    margin-left: 240px;
+    img{
+        width: 740px;
+        height: 260px;
+        object-fit:cover;
+    }
+}
+.nameEvent{
+    margin-top: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    
+}
+.data{
+    margin-bottom: 20px;
+}
+.button{
+    margin-top: 20px;
+    width: 166px;
+}
