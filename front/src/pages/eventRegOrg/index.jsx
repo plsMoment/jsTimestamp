@@ -12,7 +12,7 @@ const EventRegOrg = () => {
   <div style={divStyle}>
       <Header />
       <div className={"container"}>
-        <div className={' row'} style= {{marginTop:'8px'}}>
+        <div className={' row'} style= {{marginTop:'40px'}}>
         <div className={'col-3'}></div>
         <EventEntryFormOrg />
         </div>

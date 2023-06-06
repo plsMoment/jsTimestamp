@@ -20,8 +20,8 @@ const formatDate = (date) => {
 }
 
 const formatTime = (time) => {
-    const timeDate = new Date(time);
-    return String(timeDate.getHours() + ":" + timeDate.getMinutes());
+    const timeMinutes = time.split(':');
+    return timeMinutes[0] + ":" + timeMinutes[1];
 }
 
 module.exports = {formatDate, formatTime};

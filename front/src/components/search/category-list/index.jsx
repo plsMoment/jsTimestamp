@@ -14,7 +14,6 @@ export const CategoryList = () => {
 
     async function getCategories() {
         const response = await axios.get(`http://${serverHost}/categories`);
-        console.log('писька');
         console.log(response.data.data);
         setCategories(response.data.data);
     }

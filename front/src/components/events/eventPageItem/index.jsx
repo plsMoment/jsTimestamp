@@ -39,6 +39,9 @@ const EventPageItem = (props) => {
               <div className={s.data}>
                 {date + ", " + time}
               </div>
+              <div className={s.nameEvent}>
+                  {"Author: " + props.event.author}
+              </div>
           </div>
           <div> Описание:</div>
           <div className={s.description}>

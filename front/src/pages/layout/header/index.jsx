@@ -3,13 +3,16 @@ import s from './s.module.scss';
 import avatar from './avatar.png';
 import React, {useContext, useRef, useState} from "react";
 import useDetectOutsideClick from './useDetectOutsideClick'
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import PlacesDropdown from '../../../components/placesDropdown';
 import {EventsSearchContext} from "../../../context/context";
+import {Context} from '../../../index';
+import {observer} from "mobx-react-lite";
 
 export const Header = () => {
+    const navigate = useNavigate();
     const {setSearchPlace} = useContext(EventsSearchContext);
-
+    const {store} = useContext(Context);
     /* user dropdown */
     const dropdownRefUser = useRef(null);
     const [isActiveUser, setIsActiveUser] = useDetectOutsideClick(dropdownRefUser, false);
@@ -30,12 +33,21 @@ export const Header = () => {
         setSearchPlace(e.target.value);
     }
 
+    async function nav(){
+        await store.logout();
+        if(!store.isAuth){
+            navigate('/login');
+        }
+    }
+
     function handleClickUser(e) 
     {
         e.preventDefault();
         console.log('click22'); //action
         onClickUser(); //to close on click
     }
+
+
 
     return (
         <div className={"banner"}>
@@ -45,7 +57,7 @@ export const Header = () => {
                         <div className ={"col-2"} ref={dropdownRefCity}>
                             <div className={s.city} onClick={onClickCity}>
                                 <EnvironmentOutlined />
-                                <u>Самара</u>
+                                <u></u>
                             </div>
                             {/* <div className={isActiveCity ? s.cityListActive : s.cityList}>
                                 <input type="text" placeholder="Введите место" className={s.firtsEl} />
@@ -66,15 +78,13 @@ export const Header = () => {
                         <div className ={"col"} ref={dropdownRefUser}>
                             <div className={s.userInfo} onClick={onClickUser}>
                                 <img className={s.avatar} src={avatar} alt="avatar"/>
-                                <div>Василий</div>
+                                <div>{store.user.name}</div>
                             </div>
                             <div className={isActiveUser ? s.userListActive : s.userList}>
-                                <button onClick={handleClickUser} className={s.firtsBt}>Мои билеты</button>
-                                <button onClick={handleClickUser}>Подписки</button>
-                                <button onClick={handleClickUser}>Избранное</button>
-                                <button onClick={handleClickUser}>Выход</button>
-                                <button onClick={handleClickUser}>Настройки</button>
-                                <Link to={'/eventRegOrg'}><button className={s.lastBt}>Стать организатором</button></Link>
+                                <button onClick={() => nav()}>Выход</button>
+                                {store.user.isAdmin &&
+                                    <Link to={'/eventRegOrg'}><button className={s.lastBt}>Стать организатором</button></Link>
+                                }
                             </div>
                         </div>
                     </div>
@@ -83,3 +93,4 @@ export const Header = () => {
         </div> 
     );
   };
+export default observer(Header);

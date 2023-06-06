@@ -12,6 +12,7 @@ const createEvent = async (req, res) => {
         if (req.body.name_category.length) {
             await Event.create({
                 id: id,
+                author: req.body.author,
                 name: req.body.name,
                 date: req.body.date,
                 time: req.body.time,

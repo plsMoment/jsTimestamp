@@ -1,10 +1,14 @@
 const express = require('express');
+require('dotenv').config()
+const cookieParser = require('cookie-parser');
 const sequelize = require('./config/db');
 const helloRoutes = require('./routes/hello-routes');
 const eventRoutes = require('./routes/event-routes');
 const participantRoutes = require('./routes/participant-routes');
 const categoryRoutes = require('./routes/category-routes');
 const cityRoutes = require('./routes/city-router');
+const userRoutes = require('./routes/user-routes');
+const errorMiddleware = require('./middlewares/error-middleware')
 
 const cors = require('cors');
 
@@ -14,7 +18,7 @@ require('./models/event_id-category-model');
 require('./models/city-model');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 const host = 'http://localhost:3000';
 
@@ -37,11 +41,14 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use(cookieParser());
 app.use(helloRoutes);
 app.use(eventRoutes);
 app.use(participantRoutes);
 app.use(categoryRoutes);
 app.use(cityRoutes);
+app.use(userRoutes);
+app.use(errorMiddleware);
 
 app.listen(port, () => {
     console.log(`TimeStamp app listening on port ${port}`);

@@ -1,10 +1,10 @@
 const { Sequelize } = require('sequelize');
 
-const username = '';            // your username in postgres
-const password = '';            // password for your postgres user
-const host = '';                // ip
-const port = '';                // port
-const database = '';            // database name
+const username = 'postgres';    // your username in postgres
+const password = 'admin';       // password for your postgres user
+const host = 'localhost';       // ip
+const port = '5432';            // port
+const database = 'TimeStamp';   // database name
 
 const sequelize = new Sequelize(`postgres://${username}:${password}@${host}:${port}/${database}`);
 

@@ -13,6 +13,10 @@ Event.init({
         primaryKey: true,
         allowNull: false
     },
+    author: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false
+    },
     name: { // Название
         type: Sequelize.STRING,
         allowNull: false
@@ -22,7 +26,7 @@ Event.init({
         allowNull: false
     },
     time: { // Время
-        type: Sequelize.DataTypes.DATE
+        type: Sequelize.DataTypes.TIME,
     }, 
     country: { // Страна
         type: Sequelize.DataTypes.STRING,

@@ -2,18 +2,22 @@ import s from './s.module.scss';
 import Button from '../button';
 import checkIcon from '../event-entry-form/check.svg';
 import cross from "../event-entry-form/cross.svg"; 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import {Context} from '../../../index';
+import serverHost from "../../../variables";
+import {observer} from "mobx-react-lite";
 
 export const EventEntryFormOrg = () => {
+  const {store} = useContext(Context);
 
   const[emptName, setEmptName] = useState(false);
   const[valueName, setValueName] = useState('');
   let handleChangeName = (event) => {setValueName(event.target.value); setEmptName(false);}
 
   const[emptCategory, setEmptCategory] = useState(false);
-  const[valueCategory, setValueCategory] = useState('Финансы');
+  const[valueCategory, setValueCategory] = useState('IT');
   let handleChangeCategory = (event) => {setValueCategory(event.target.value); setEmptCategory(false);}
 
   const[emptDate, setEmptDate] = useState(false);
@@ -55,6 +59,40 @@ export const EventEntryFormOrg = () => {
   let handleChangeCB = (event) => {setСheckedCB(!checkedCB); setEmptCB(false);}
 
   const navigate = useNavigate();
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  async function getCategories() {
+    const response = await axios.get(`http://${serverHost}/categories`);
+    console.log(response.data.data);
+    setCategories(response.data.data);
+  }
+
+  async function postEvent() {
+    console.log('hyhhyhyhy')
+    console.log(valueDate)
+    console.log(valueTime)
+    await axios.post(`http://${serverHost}/events`, {
+      name: valueName,
+      author: store.user.name,
+      name_category: [valueCategory],
+      date: valueDate,
+      time: valueTime,
+      country: valueCountry,
+      city: valueCity,
+      venue: valuePlace,
+      ageLimit: 18,
+      availablePlaces: 1000,
+      description: valueDecription,
+      shortDescription: valueShortDecription,
+      price: valuePrice,
+      poster: "poster-url"
+    });
+  }
 
   function sendForm(event) {
     let trg = true;
@@ -111,6 +149,7 @@ export const EventEntryFormOrg = () => {
     {
       console.log([valueName, valueCategory, valueDate, valueTime, valueCountry, valueCity, valuePlace, valuePrice, valueShortDecription, valueDecription, checkedCB]);
       alert('данные отправлены');
+      postEvent();
       navigate('/');
     }
   }
@@ -128,13 +167,7 @@ export const EventEntryFormOrg = () => {
 
               <select value={valueCategory} onChange={handleChangeCategory} className={emptCategory ? s.EventEntryForm__input__error : s.EventEntryForm__input} required>
               <option disabled selected = "Категория"> Категория </option>
-                  <option>Финансы</option>
-                  <option> IT</option>
-                  <option>HR</option>
-                  <option>Производство</option>
-                  <option>Торговля</option>
-                  <option>Образование</option>
-                  <option>Медицина</option>
+                {categories.map((category) => <option>{category.name_category}</option>)}
               </select>
               <span className={emptCategory ? s.errorTxt__true : s.errorTxt__false}>Поле обязательное</span>
 
@@ -157,11 +190,6 @@ export const EventEntryFormOrg = () => {
               
               <select value={valueCity} onChange={handleChangeCity} className={emptCity ? s.EventEntryForm__input__error : s.EventEntryForm__input} required>
                 <option disabled selected = "Город"> Гоpод </option>
-                <option>Тольятти</option>
-                <option>Самара</option>
-                <option>Тольятти</option>
-                <option>Самара</option>
-                <option>Тольятти</option>
                 <option>Тольятти</option>
                 <option>Самара</option>
               </select>
@@ -193,3 +221,5 @@ export const EventEntryFormOrg = () => {
         </div>
     );
 };
+
+export default observer(EventEntryFormOrg);
